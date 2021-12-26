@@ -1,0 +1,667 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Representative Explanations</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a30337b3-cc86-4808-882c-0898ba4a537c" class="page sans"><header><h1 class="page-title">Representative Explanations</h1></header><div class="page-body"><p id="0f7dd42f-46e8-47e9-be46-adfe3f634b4a" class=""><em>Some explanations were slightly modified to remove spelling mistakes or remove references to annotations/evidence. The modifications can be found in the page linked below. There were two cases where Katelyn did not code the same code as Donghoon — after closer investigation, Katelyn agreed with Donghoon and updated those two cases. This also allowed to have a complete set for A codes to be shown in the study. Modifications for codes can be found in the page linked below. </em></p><figure id="dff1cf86-2c1e-46d9-9825-aa8f8bd520f6" class="link-to-page"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Explanations%20Modified%20dff1cf862c1e46d99825aa8f8bd520f6.html">Explanations Modified</a></figure><hr id="f548bb49-8339-4f50-af22-916e26db0a1b"/><ul id="d967e76e-57e0-42e8-9709-73b0f8cefd65" class="toggle"><li><details open=""><summary><strong>Ground truth Images</strong></summary><div id="45244570-3d29-4410-9e2f-f1f402a70b04" class="collection-content"><h4 class="collection-title">Ground Truth Images</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th></tr></thead><tbody><tr id="83e8903b-1f2c-437d-92b4-bd8c22c56bbe"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Midwest%20Flooding%20-%20429%2083e8903b1f2c437d92b4bd8c22c56bbe.html">Midwest Flooding - 429</a></td></tr><tr id="b546c5bb-c7ab-4ce9-8eeb-0dd550c5b7d2"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Mexico%20Earthquake%2008%20b546c5bbc7ab4ce98eeb0dd550c5b7d2.html">Mexico Earthquake 08</a></td></tr><tr id="f5c1ad99-c3ab-4b76-8aad-eccfb58a139a"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Hurricane%20Michael%20530%20f5c1ad99c3ab4b768aadeccfb58a139a.html">Hurricane Michael 530</a></td></tr><tr id="07a91a2c-92f9-49e6-942e-7e5c273044bd"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Hurricane%20Florence%2022%2007a91a2c92f949e6942e7e5c273044bd.html">Hurricane Florence 22</a></td></tr><tr id="c177ec45-0ffb-4fbc-8b78-8db8e3eaaea0"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Hurricane%20Florence%20104%20c177ec450ffb4fbc8b788db8e3eaaea0.html">Hurricane Florence 104</a></td></tr><tr id="4c496a29-7166-4bd9-97f5-5b4fa986fbbf"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Midwest%20Flooding%2096%204c496a2971664bd997f55b4fa986fbbf.html">Midwest Flooding 96</a></td></tr><tr id="edb476ba-50b9-4a5a-b5f7-f73f153aacfb"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Socal%20Fire%20193%20edb476ba50b94a5ab5f7f73f153aacfb.html">Socal Fire 193</a></td></tr><tr id="681ec843-6549-469a-82b1-c778fb747c06"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Santa%20Rosa%20246%20681ec8436549469a82b1c778fb747c06.html">Santa Rosa 246</a></td></tr><tr id="32af55bc-0312-46df-a6b6-e74c2de8c97c"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Midwest%20Flooding%2076%2032af55bc031246dfa6b6e74c2de8c97c.html">Midwest Flooding 76</a></td></tr><tr id="b63ffe64-8361-462f-86ea-f0b93ebeb9ff"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/Ground%20Truth%20Images%20452445703d2944109e2ff1f402a70b04/Hurricane%20Florence%20147%20b63ffe648361462f86eaf0b93ebeb9ff.html">Hurricane Florence 147</a></td></tr></tbody></table></div></details></li></ul><hr id="dc47713d-9872-4acc-9c9a-a4161bf5d69e"/><ul id="f8d45233-10b5-4741-8ef2-338319bac48d" class="toggle"><li><details open=""><summary><strong>Group / Condition / Code Breakdown</strong></summary><table id="87913ae3-5345-419d-b032-054fe276a947" class="simple-table"><tbody><tr id="3a395bd0-929e-4340-ad56-8a23066916c5"><td id="gGBm"><strong>Group</strong></td><td id="qjO{"><strong>CC</strong></td><td id="LiDI"><strong>CP</strong></td><td id="|hBl"><strong>CI</strong></td><td id="SkW:"><strong>I</strong></td></tr><tr id="ef92fe65-7a37-40c6-8839-77cb08cf2a28"><td id="gGBm">1</td><td id="qjO{">A</td><td id="LiDI">B</td><td id="|hBl">D</td><td id="SkW:">F</td></tr><tr id="c6c03b83-72e6-47ce-92be-587be4d60c37"><td id="gGBm">2</td><td id="qjO{">B</td><td id="LiDI">D</td><td id="|hBl">F</td><td id="SkW:">A</td></tr><tr id="d692d069-6a51-4e33-8997-3e505ae99180"><td id="gGBm">3</td><td id="qjO{">D</td><td id="LiDI">F</td><td id="|hBl">A</td><td id="SkW:">B</td></tr><tr id="fb60a9bf-73f4-47d2-8419-6c236212c878"><td id="gGBm">4</td><td id="qjO{">F</td><td id="LiDI">A</td><td id="|hBl">B</td><td id="SkW:">D</td></tr></tbody></table><table id="bf8d41b6-51dd-4884-b760-ff1594a9dbee" class="simple-table"><tbody><tr id="564b68d4-79f5-49b5-a641-e51a5f08c52f"><td id="gl:~"><strong>Group</strong></td><td id="`B|e">CC</td><td id="=cSe">CP</td><td id="FA^^">CI</td><td id="Hlr?">I</td></tr><tr id="48f2497d-ef05-4f77-9de2-7811f9d1b893"><td id="gl:~">1</td><td id="`B|e">Hurricane Florence 22</td><td id="=cSe">Hurricane Michael 530</td><td id="FA^^">Midwest Flooding 96</td><td id="Hlr?">Midwest Flooding 76</td></tr><tr id="8d02edd3-d886-43c0-805a-ba4119f33bb1"><td id="gl:~">2</td><td id="`B|e">Socal Fire 193</td><td id="=cSe">Hurricane Florence 22</td><td id="FA^^">Hurricane Michael 530</td><td id="Hlr?">Santa Rosa Wildfire</td></tr><tr id="27fe4907-be82-4bf8-9005-bfd7c069d6c0"><td id="gl:~">3</td><td id="`B|e">Hurricane Michael 530</td><td id="=cSe">Midwest Flooding 96</td><td id="FA^^">Hurricane Florence 22</td><td id="Hlr?">Hurricane Florence 147</td></tr><tr id="943d69d5-6a47-43d9-9178-d2c494b912bf"><td id="gl:~">4</td><td id="`B|e">Hurricane Florence 104</td><td id="=cSe">Hurricane Florence 22</td><td id="FA^^">Mexico Earthquake</td><td id="Hlr?">Midwest Flooding 429</td></tr></tbody></table><table id="5410d78a-67f2-4fa3-8c63-5ebd7d0023fe" class="simple-table"><tbody><tr id="6ad739d1-0c3c-4b38-94f2-23784f484b53"><td id="gGBm"><strong>Group</strong></td><td id="qjO{"></td><td id="LiDI"></td><td id="|hBl"></td><td id="SkW:"></td></tr><tr id="568d78ba-1d0d-4b8b-95bb-c40afe3cee64"><td id="gGBm">1</td><td id="qjO{">CC</td><td id="LiDI">CP</td><td id="|hBl">CI</td><td id="SkW:">I</td></tr><tr id="ad989f85-92e0-4e1f-a843-ee742cf90edd"><td id="gGBm">2</td><td id="qjO{">CP</td><td id="LiDI">CI</td><td id="|hBl">I</td><td id="SkW:">CC</td></tr><tr id="8ff44e21-c1a0-4767-9989-dc7cfce2c8a9"><td id="gGBm">3</td><td id="qjO{">CI</td><td id="LiDI">I</td><td id="|hBl">CC</td><td id="SkW:">CP</td></tr><tr id="2ebd4d8a-a513-4467-ad0d-d48fc6f9d2a7"><td id="gGBm">4</td><td id="qjO{">I</td><td id="LiDI">CC</td><td id="|hBl">CP</td><td id="SkW:">CI</td></tr></tbody></table></details></li></ul><hr id="43d9614a-ab43-4a36-98db-d8a51de98011"/><ul id="749803f8-6f83-4dea-bdc8-1d0f3bc44b6e" class="toggle"><li><details open=""><summary><strong>Group Image Sets</strong></summary><ul id="02d146e9-d688-4208-9ade-f5724078d32e" class="toggle"><li><details open=""><summary><strong>Group 1</strong></summary><ul id="0ac61949-a7e1-4a4f-8776-39cee234ddf3" class="toggle"><li><details open=""><summary>Correct Assessment, Correct Annotation</summary><p id="c83f380a-5799-4bea-b3e3-f85c1f5cc444" class=""><strong>User ID: </strong>58043bb3bd8a970001fdef44</p><p id="e73adfb0-abd7-4592-abcb-f00b2233a1aa" class=""><strong>Image ID: </strong>hurricane-florence_00000022</p><p id="1514b4cf-2d37-4fe4-8c79-15c94c3ce147" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="7c72583f-d26a-4e4d-b53a-3b2d392aa3bb" class="toggle"><li><details open=""><summary>Correct Assessment, Partially Correct Annotation</summary><p id="6b4816a5-448b-46ea-a957-5b7dc8b4a042" class=""><strong>User ID: </strong>5f8f88353fdd2320674e08eb</p><p id="5d1fe107-5de7-4535-8cc9-f40fcc155a25" class=""><strong>Image ID:</strong> hurricane-michael_00000530</p><p id="37c1f45e-44af-4b35-9cec-cd9382ade3a2" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="924dcd74-543a-453d-9e98-980f86d4a561" class="toggle"><li><details open=""><summary>Correct Assessment, Incorrect Annotation</summary><p id="de45f0b5-5147-4fa1-bdbb-9700f367783f" class=""><strong>User ID: </strong>5c1a9424a329230001ecaabd</p><p id="e96ae1aa-b534-4ada-be43-3ae5eec70d20" class=""><strong>Image ID:</strong> midwest-flooding_00000096</p><p id="2a87f7f0-06a4-4d61-a8fc-d8c75984e1c7" class=""><strong>Ground Truth ID: </strong>2</p></details></li></ul><ul id="f823e741-91a4-4202-a294-070af8451a6b" class="toggle"><li><details open=""><summary>Incorrect Assessment</summary><p id="fbbee22b-4971-47fa-9ed6-ae4d444e05c1" class=""><strong>User ID:</strong> 58043bb3bd8a970001fdef44</p><p id="c1d94ecf-2add-426c-8576-28f39b8c1462" class=""><strong>Image ID: </strong>midwest-flooding_00000076</p><p id="6973ec0d-6fed-405a-a296-494a9c663ffa" class=""><strong>Ground Truth ID: </strong>2</p><p id="be81cc78-5f26-4ad2-bb77-74bf4e846ea3" class=""><strong>User Assessment ID: </strong>4</p></details></li></ul></details></li></ul><ul id="26095b86-8501-41a7-91e2-1783e3e0b31c" class="toggle"><li><details open=""><summary><strong>Group 2</strong></summary><ul id="f3b09f85-1e5d-4d08-bc77-7058cf959bff" class="toggle"><li><details open=""><summary>Correct Assessment, Partially Correct Annotation</summary><p id="074f9063-d579-48c3-b567-40efffed8b1c" class=""><strong>User ID</strong>: 5f5ba24c66811130d94d6d4b</p><p id="8354bfe1-99a4-4bba-9a55-497cfe8d4342" class=""><strong>Image ID:</strong> hurricane-florence_00000022</p><p id="be695475-6a30-46a5-b067-8d04d9254642" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="45e8a5e9-b8c9-4fe0-8c69-ac1d9f9f353e" class="toggle"><li><details open=""><summary>Correct Assessment, Incorrect Annotation</summary><p id="5e760977-631f-4d55-91ef-09fa9ae4ca5d" class=""><strong>User ID</strong>: 5a03d20a7ecfc50001be0a7a</p><p id="3cd0e525-d415-440e-bc67-fa7919956432" class=""><strong>Image ID:</strong> hurricane-michael_00000530</p><p id="7770994f-d483-43ff-b03f-0f09047e457c" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="17acfb61-862e-4185-8e9c-26812d2abb99" class="toggle"><li><details open=""><summary>Incorrect Assessment</summary><p id="ae616936-9cfa-4d83-941c-c11ca9194c29" class=""><strong>User ID</strong>: practice round</p><p id="36be3a74-11ee-49bb-811f-e999a54ed39d" class=""><strong>Image ID:</strong> santa-rosa-wildfire_00000246</p><p id="5e76c27c-0261-4863-ac31-86d01c3a0d0b" class=""><strong>Ground Truth ID: </strong>4</p><p id="3f172c51-0829-4591-9f90-08bf995554c0" class=""><strong>User Assessment ID: </strong>3</p></details></li></ul><ul id="a2bc224f-d171-40c1-b202-5bad97ce4d1b" class="toggle"><li><details open=""><summary>Correct Assessment, Correct Annotation</summary><p id="0088efae-daee-420c-b3ab-0228cd367d29" class=""><strong>User ID</strong>: 60006f7aa028d70dab3baf76</p><p id="16f3e400-ddb2-4368-bfe5-cb83b976bc4a" class=""><strong>Image ID:</strong> socal-fire_00000193</p><p id="ee5f995f-394e-4daf-b852-b962ee57105c" class=""><strong>Ground Truth ID: </strong>4</p></details></li></ul></details></li></ul><ul id="8b3f8ffd-228c-4049-bbc1-e3cbbcc0080a" class="toggle"><li><details open=""><summary><strong>Group 3</strong></summary><ul id="b70f027e-e2d6-4974-803b-d9e3d50731d5" class="toggle"><li><details open=""><summary>Correct Assessment, Incorrect Annotation</summary><p id="5b4e5524-0d26-438e-a9fd-c4ac15471a1a" class=""><strong>User ID</strong>: 5e3adfc595ff562fbdd130fa</p><p id="17e01f8f-6aae-4198-b7be-1417a56a6e78" class=""><strong>Image ID:</strong> hurricane-florence_00000022</p><p id="cb8ff2af-23b6-417d-916f-7c23a81eb3cf" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="56724cd8-3936-40ce-b5d1-3a4177c62c54" class="toggle"><li><details open=""><summary>Incorrect Assessment</summary><p id="d036b1b1-e526-4d52-95c7-9acb9108de8a" class=""><strong>User ID</strong>: 5e3b759740e302397f294a2d</p><p id="43f5aaa6-0a89-43a2-8c5c-63a0455c0110" class=""><strong>Image ID:</strong> hurricane-florence_00000147</p><p id="3a294972-e071-44ff-90c9-6fb2bf9d6ef5" class=""><strong>Ground Truth ID: </strong>4</p><p id="2142ddd0-3bf0-4e78-9652-cc43c867ed4b" class=""><strong>User Assessment ID: </strong>1</p></details></li></ul><ul id="63f8fa11-e84c-4a74-be9b-e062ae69200d" class="toggle"><li><details open=""><summary>Correct Assessment, Correct Annotation</summary><p id="23e6b951-b0cb-42fa-ba57-dc93eb6d0d95" class=""><strong>User ID</strong>: 5c1a9424a329230001ecaabd</p><p id="d057d4fd-c66b-4bac-b34d-e3a2672cb4f3" class=""><strong>Image ID:</strong> hurricane-michael_00000530</p><p id="45cc303b-c7af-4976-a226-91be35e274f2" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="86bc73aa-7ad4-430b-a8fb-ec21f2e0f725" class="toggle"><li><details open=""><summary>Correct Assessment, Partially Correct Annotation</summary><p id="0d22458d-8199-4559-a6ca-1a2b124c4ffa" class=""><strong>User ID</strong>: 5f9df5f72aca47392dc49b65</p><p id="4532069f-25f6-4dee-8abc-458f43bb29fa" class=""><strong>Image ID:</strong> midwest-flooding_00000096</p><p id="995e6244-d03f-42f7-80a8-0d764c8afb93" class=""><strong>Ground Truth ID: </strong>2</p></details></li></ul></details></li></ul><ul id="0494663c-451d-4de5-836d-17846c5b3c4f" class="toggle"><li><details open=""><summary><strong>Group 4</strong></summary><ul id="6250737f-b636-4526-be35-0e2533f6112d" class="toggle"><li><details open=""><summary>Incorrect Assessment</summary><p id="95b6b2a0-10ea-405a-86a0-c3e3b8f7d520" class=""><strong>User ID</strong>: 57656f6c2bfddf000125cce5</p><p id="84666aec-30a6-4a47-9d8d-4486271c9234" class=""><strong>Image ID:</strong> midwest-flooding_00000429</p><p id="776012c1-07af-4fbe-abb0-95f3cd69ea77" class=""><strong>Ground Truth ID: </strong>2</p><p id="5388f307-5678-4000-ad40-59c520f4b875" class=""><strong>User Assessment ID: </strong>3</p></details></li></ul><ul id="805d8748-08ee-473c-9b54-3cd0fa1a5ad7" class="toggle"><li><details open=""><summary>Correct Assessment, Correct Annotation</summary><p id="c02e4ba5-05d8-4406-951a-7f8030b201b5" class=""><strong>User ID</strong>: practice round 2</p><p id="257a3814-e693-436a-b152-ccf3d19b9894" class=""><strong>Image ID:</strong> hurricane-florence_00000104</p><p id="98fd47e6-9977-41ff-87be-1a1f97941f74" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="2982b28a-826a-44a2-be5e-a69d6b4bca5c" class="toggle"><li><details open=""><summary>Correct Assessment, Partially Correct Annotation</summary><p id="f4313b21-23cd-411e-a8fd-20d5aff4c0e6" class=""><strong>User ID</strong>: 5e7a0da5c8327f0406f24b9a</p><p id="c326828f-2cd5-46c4-813f-9fad1b00e23d" class=""><strong>Image ID:</strong> hurricane-florence_00000022</p><p id="8b71a6d7-fe53-486d-ada4-f4b5dc592be7" class=""><strong>Ground Truth ID: </strong>3</p></details></li></ul><ul id="d3317609-23b6-4181-8c3b-521487d38805" class="toggle"><li><details open=""><summary>Correct Assessment, Incorrect Annotation</summary><p id="31440b1d-b2ce-4940-b35c-6257933bbb0a" class=""><strong>User ID</strong>: 5c0990b854deae0001ac693c</p><p id="f63c74d5-aad3-4420-a5e4-81bd405693e8" class=""><strong>Image ID:</strong> mexico-earthquake_00000008</p><p id="7093331c-de5d-4316-a603-848bdad658c4" class=""><strong>Ground Truth ID: </strong>2</p></details></li></ul></details></li></ul></details></li></ul><p id="57357466-ace8-42db-ad45-5db47ea83caa" class="">
+</p><p id="7310acff-3fa1-4601-aeee-fa7602f63977" class=""><em>Note: card with group ID as -1 means that they were once considered but are no longer being considered. I just did not want to delete them in case we needed to switch them back in.</em></p><p id="2ddda332-0b5d-4e41-ae2a-712be2dbd56d" class="">
+</p><div id="ac41290f-dc3c-497a-9d23-dcf7db46c052" class="collection-content"><h4 class="collection-title">CC: Correct Assessment, Correct Annotation</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Code</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 1</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 2</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Explanation</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Group</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>User ID</th></tr></thead><tbody><tr id="be987cbb-f0e2-4f76-8b17-b26732b64426"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Hurricane%20Florence%2022%20be987cbbf0e24f768b17b26732b64426.html">Hurricane Florence 22</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-orange">A-2</span></td><td class="cell-A]=l">This building is in floodwater as well.</td><td class="cell-JTpv">This house looks like it is in floodwater.</td><td class="cell-wMN}">The house looks like it is in floodwater since it appears that there is an unbroken connection of water between it and the river.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-pink">1</span></td><td class="cell-qUZi">58043bb3bd8a970001fdef44</td></tr><tr id="7e68f454-d05c-4ff8-97ba-02a9747739e7"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Socal%20Fire%20193%207e68f454d05c4ff897ba02a9747739e7.html">Socal Fire 193</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-blue">B-1</span></td><td class="cell-A]=l">A damaged section of land is shown in the building&#x27;s place in post disaster snapshot.</td><td class="cell-JTpv">A large home is shown, fully intact, in pre disaster snapshot.</td><td class="cell-wMN}">It appears here that a fully intact large house was leveled and destroyed by the disaster. If you look closely at the magnified image, it seems the post disaster image shows a pile of debris where the house used to be. It does not appear to be at all intact.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-yellow">2</span></td><td class="cell-qUZi">60006f7aa028d70dab3baf76</td></tr><tr id="c9796f21-1fd4-4d20-9a51-80d725c7fe70"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Hurricane%20Michael%20530%20c9796f211fd44d209a5180d725c7fe70.html">Hurricane Michael 530 </a></td><td class="cell-gyXv"><span class="selected-value select-value-color-green">D-1</span></td><td class="cell-A]=l">The majority of the roof is missing</td><td class="cell-JTpv"></td><td class="cell-wMN}">The building is not completely destroyed but it has lost the majority of its roof</td><td class="cell-[?Nz"><span class="selected-value select-value-color-green">3</span></td><td class="cell-qUZi">5c1a9424a329230001ecaabd</td></tr><tr id="94d35287-9b75-491b-9fca-8886dc58d5c9"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Hurricane%20Florence%20104%2094d352879b75491b9fca8886dc58d5c9.html">Hurricane Florence 104</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-pink">F-1</span></td><td class="cell-A]=l">Roof collapsed.</td><td class="cell-JTpv"></td><td class="cell-wMN}">The roof of one structure collapsed.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-gray">4</span></td><td class="cell-qUZi">practice round 2</td></tr><tr id="15560004-5ba8-47c4-866b-6f3025b26a1d"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Hurricane%20Michael%20530%20155600045ba847c4866b6f3025b26a1d.html">Hurricane Michael 530</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-default">B-3</span></td><td class="cell-A]=l">The roof of the building has been torn off</td><td class="cell-JTpv"></td><td class="cell-wMN}">The roof of the building been ripped off suggests that the building has major damage involved but considering that the building still seems to be structurally up, it is more related to major damage than being destroyed.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-red">-1</span></td><td class="cell-qUZi">5a090e8b087f2e0001eae1e5</td></tr><tr id="2ed0ea1d-3a45-4c94-9b44-23aa57e1edb4"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Midwest%20Flooding%2076%202ed0ea1d3a454c949b4423aa57e1edb4.html">Midwest Flooding 76</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-blue">B-1</span></td><td class="cell-A]=l">Significant flooding but does not appear to have reached structure.</td><td class="cell-JTpv"></td><td class="cell-wMN}">Minor flooding but no damage to structure.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-red">-1</span></td><td class="cell-qUZi">5f3c3a67d38fdc1e96c569e0</td></tr><tr id="b4406ce7-7337-46b5-b280-d2e2a9584431"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Hurricane%20Florence%2022%20b4406ce7733746b5b280d2e2a9584431.html">Hurricane Florence 22</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-purple">B-2</span></td><td class="cell-A]=l">Structure surrounded by water.</td><td class="cell-JTpv">Structure surrounded by water.</td><td class="cell-wMN}">Structure is completely surrounded by water.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-red">-1</span></td><td class="cell-qUZi">5f62665d9413142b9e0156f2</td></tr><tr id="07a78ffe-c2aa-4707-ab85-1012652c3311"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CC%20Correct%20Assessment,%20Correct%20Annotation%20ac41290fdc3c497a9d23dcf7db46c052/Santa%20Rosa%20Fire%20246%2007a78ffec2aa4707ab851012652c3311.html">Santa Rosa Fire 246</a></td><td class="cell-gyXv"><span class="selected-value select-value-color-blue">B-1</span></td><td class="cell-A]=l">Pre disaster image shows a long gray structure standing.</td><td class="cell-JTpv">Post disaster image shows what looks like a leveled and severely dilapidated rendering of the same building.</td><td class="cell-wMN}">When comparing snapshots, it is abundantly clear that the pre disaster image shows an unharmed gray building while the post disaster imaging shows a leveled carcass of a structure. Upon magnification, it is clear the structure is but a pile of dust and debris and is therefore categorized as destroyed.</td><td class="cell-[?Nz"><span class="selected-value select-value-color-red">-1</span></td><td class="cell-qUZi">60006f7aa028d70dab3baf76</td></tr></tbody></table></div><p id="8b9cd28f-3531-48b7-8bf0-a8c941985586" class="">
+</p><p id="4b692d5f-6906-459e-8cdd-844cbcb16898" class="">
+</p><div id="54531672-8396-4317-9be8-4e3f1c030ca6" class="collection-content"><h4 class="collection-title">CP: Correct Assessment, Partially Correct Annotation</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Codes</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 1</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 2</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 3</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 4</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Explanation</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Group</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>User ID</th></tr></thead><tbody><tr id="b61c0ec9-85f5-4a58-aec1-546360c9d79c"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Hurricane%20Micheal%20530%20b61c0ec985f54a58aec1546360c9d79c.html">Hurricane Micheal 530</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-pink">B-U</span></td><td class="cell-A]=l">Evidence 1 is a major damages of the environment which are obvious and easily identifiable.</td><td class="cell-&lt;Ofd">Evidence 2 is also a major damages to the environment.</td><td class="cell-?Xxa"></td><td class="cell-:^e_"></td><td class="cell-wMN}">Damages caused in the environment are major and easily identifiable because the pre-disaster and post-disaster are not the same views.</td><td class="cell-ts~?"><span class="selected-value select-value-color-gray">1</span></td><td class="cell-;pXR">5f8f88353fdd2320674e08eb</td></tr><tr id="cefdab75-5de9-4da3-9ce8-e8c20ceaacca"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Hurricane%20Florence%2022%20cefdab755de94da39ce8e8c20ceaacca.html">Hurricane Florence 22</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-red">D-1</span></td><td class="cell-A]=l">parts of building affected</td><td class="cell-&lt;Ofd"></td><td class="cell-?Xxa"></td><td class="cell-:^e_"></td><td class="cell-wMN}">shows scattered vegetation and mud deposits around building with parts of building affected</td><td class="cell-ts~?"><span class="selected-value select-value-color-orange">2</span></td><td class="cell-;pXR">5f5ba24c66811130d94d6d4b</td></tr><tr id="2dc78647-fc55-46d7-9fc6-bab95424be7d"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Midwest%20Flooding%2096%202dc78647fc5546d79fc6bab95424be7d.html">Midwest Flooding 96</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-purple">F-2</span></td><td class="cell-A]=l">small area burned</td><td class="cell-&lt;Ofd"></td><td class="cell-?Xxa"></td><td class="cell-:^e_"></td><td class="cell-wMN}">small area burned. Home intact.</td><td class="cell-ts~?"><span class="selected-value select-value-color-red">3</span></td><td class="cell-;pXR">5f9df5f72aca47392dc49b65</td></tr><tr id="cdcb79f7-762a-44a0-bc8c-2d19f34ccfe2"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Hurricane%20Florence%2022%20cdcb79f7762a44a0bc8c2d19f34ccfe2.html">Hurricane Florence 22</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-green">A-2</span></td><td class="cell-A]=l">Signs of burning</td><td class="cell-&lt;Ofd">Flooding</td><td class="cell-?Xxa"></td><td class="cell-:^e_"></td><td class="cell-wMN}">Smoke in the area indicates signs of burning. Signs of flooding</td><td class="cell-ts~?"><span class="selected-value select-value-color-default">4</span></td><td class="cell-;pXR">5e7a0da5c8327f0406f24b9a</td></tr><tr id="5c1bdc92-7347-4ed9-ab0a-2c5b803cf2f9"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Hurricane%20Florence%20147%205c1bdc9273474ed9ab0a2c5b803cf2f9.html">Hurricane Florence 147</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-default">B-1</span></td><td class="cell-A]=l">No buildings</td><td class="cell-&lt;Ofd">Buildings here</td><td class="cell-?Xxa"></td><td class="cell-:^e_"></td><td class="cell-wMN}">the buildings seem to be gone compared to the first picture</td><td class="cell-ts~?"><span class="selected-value select-value-color-blue">-1</span></td><td class="cell-;pXR">5a9067894eecca0001dd1427</td></tr><tr id="8a478fa5-8302-4dba-9d6c-e21e9343f2b9"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Midwest%20Flooding%2076%208a478fa583024dba9d6ce21e9343f2b9.html"> Midwest Flooding 76</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-default">B-1</span><span class="selected-value select-value-color-orange">B-2</span></td><td class="cell-A]=l">It approaches this structure but does not actually touch the structure</td><td class="cell-&lt;Ofd">The mud/flooding has risen up to the path here</td><td class="cell-?Xxa">It&#x27;s hard to see if there was a structure in the before image, but there clearly isn&#x27;t one in the after</td><td class="cell-:^e_"></td><td class="cell-wMN}">Based on the road destruction but lack of evidence of building destruction, I am classifying this as minor damage.</td><td class="cell-ts~?"><span class="selected-value select-value-color-blue">-1</span></td><td class="cell-;pXR">5fc7a07fcbf38b0a74ee411a</td></tr><tr id="c79e933a-0b43-4518-9b62-3574f2f9bc24"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Socal%20Fire%20193%20c79e933a0b4345189b623574f2f9bc24.html">Socal Fire 193</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-default">B-1</span><span class="selected-value select-value-color-orange">B-2</span></td><td class="cell-A]=l">As seen in the image the building in question has been completely destroyed.</td><td class="cell-&lt;Ofd">The vegetation surrounding the structure has been completely washed off.</td><td class="cell-?Xxa"></td><td class="cell-:^e_"></td><td class="cell-wMN}">The building in questions has been obliterated because of the disaster and we can only see the remains of the structure.</td><td class="cell-ts~?"><span class="selected-value select-value-color-blue">-1</span></td><td class="cell-;pXR">5e67f0321e4f0a0a657c1d08</td></tr><tr id="52148f61-4346-4117-b814-90844bca6fd8"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CP%20Correct%20Assessment,%20Partially%20Correct%20Annotatio%2054531672839643179be84e3f1c030ca6/Hurricane%20Micheal%20530%2052148f6143464117b81490844bca6fd8.html">Hurricane Micheal 530</a></td><td class="cell-FoN?"><span class="selected-value select-value-color-yellow">A-1</span></td><td class="cell-A]=l">The roof was is gone as you can see the inside of the building.</td><td class="cell-&lt;Ofd">There was a roof</td><td class="cell-?Xxa">Most of the buildings are completely gone.</td><td class="cell-:^e_">There are building standing.</td><td class="cell-wMN}">A hurricane probably hit destroying all the building.</td><td class="cell-ts~?"><span class="selected-value select-value-color-blue">-1</span></td><td class="cell-;pXR">5ddc7d9c238a91be4147e566</td></tr></tbody></table></div><p id="bd1c78a8-02a0-4fc0-b354-c231137cdfe7" class="">
+</p><p id="e86f7a58-184a-4e4a-a851-c4c2e663498c" class="">
+</p><div id="0718f4a0-6330-4ab1-865c-10502043cece" class="collection-content"><h4 class="collection-title">CI: Correct Assessment, Incorrect Annotation</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Codes</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 1</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 2</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Explanation</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Group</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>User ID</th></tr></thead><tbody><tr id="1d806d4c-631f-44f7-b562-39d38373751d"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CI%20Correct%20Assessment,%20Incorrect%20Annotation%200718f4a063304ab1865c10502043cece/Midwest%20Flooding%2096%201d806d4c631f44f7b56239d38373751d.html">Midwest Flooding 96</a></td><td class="cell-rYB&lt;"><span class="selected-value select-value-color-gray">D-1</span></td><td class="cell-]Rax">The large structures are intact but there are signs of some flooding</td><td class="cell-UI@X"></td><td class="cell-A]=l">None of the large buildings appear to be damaged but there is evidence of a large mud patch, indicating some minor flood damage</td><td class="cell-&lt;:Zu"><span class="selected-value select-value-color-gray">1</span></td><td class="cell-LsAr">5c1a9424a329230001ecaabd</td></tr><tr id="914a55eb-9acd-4cd8-94c5-75c687a71172"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CI%20Correct%20Assessment,%20Incorrect%20Annotation%200718f4a063304ab1865c10502043cece/Hurricane%20Michael%20530%20914a55eb9acd4cd894c575c687a71172.html">Hurricane Michael 530</a></td><td class="cell-rYB&lt;"><span class="selected-value select-value-color-red">F-1</span></td><td class="cell-]Rax">There appears to be a mixture of damages</td><td class="cell-UI@X"></td><td class="cell-A]=l">There are some structures remaining but most have been very damaged.</td><td class="cell-&lt;:Zu"><span class="selected-value select-value-color-blue">2</span></td><td class="cell-LsAr">5a03d20a7ecfc50001be0a7a</td></tr><tr id="a10799f5-ce0a-48ef-973e-b9253e91b7e0"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CI%20Correct%20Assessment,%20Incorrect%20Annotation%200718f4a063304ab1865c10502043cece/Hurricane%20Florence%2022%20a10799f5ce0a48ef973eb9253e91b7e0.html">Hurricane Florence 22</a></td><td class="cell-rYB&lt;"><span class="selected-value select-value-color-blue">A-1</span></td><td class="cell-]Rax">Flood waters.</td><td class="cell-UI@X"></td><td class="cell-A]=l">I would say this structure sustained major damage due to the rising flood waters.</td><td class="cell-&lt;:Zu"><span class="selected-value select-value-color-red">3</span></td><td class="cell-LsAr">5e3adfc595ff562fbdd130fa</td></tr><tr id="0df9ebca-7aee-4545-bd10-d2cab8fd7d8a"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CI%20Correct%20Assessment,%20Incorrect%20Annotation%200718f4a063304ab1865c10502043cece/Mexico%20Earthquake%2008%200df9ebca7aee4545bd10d2cab8fd7d8a.html">Mexico Earthquake 08</a></td><td class="cell-rYB&lt;"><span class="selected-value select-value-color-brown">B-2</span></td><td class="cell-]Rax">Brown turns into green</td><td class="cell-UI@X">Looks like the entire area is filled with smoke.</td><td class="cell-A]=l">There&#x27;s some discoloration on the left and it looks like the area got filled with smoke. I don&#x27;t see any major damages to the buildings.</td><td class="cell-&lt;:Zu"><span class="selected-value select-value-color-yellow">4</span></td><td class="cell-LsAr">5c0990b854deae0001ac693c</td></tr><tr id="7850d377-4206-40c2-bed9-8e10e78cddb6"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CI%20Correct%20Assessment,%20Incorrect%20Annotation%200718f4a063304ab1865c10502043cece/Midwest%20Flooding%2076%207850d377420640c2bed98e10e78cddb6.html">Midwest Flooding 76</a></td><td class="cell-rYB&lt;"><span class="selected-value select-value-color-default">B-U</span></td><td class="cell-]Rax">There looks to be slightly less of whatever structure this is remaining after the disaster</td><td class="cell-UI@X"></td><td class="cell-A]=l">Minor changes to the structures and landscape in the post-disaster pictures lead me to believe that this was a minor damage disaster</td><td class="cell-&lt;:Zu"><span class="selected-value select-value-color-pink">-1</span></td><td class="cell-LsAr">5f7fc36718e5dc19dc1058ca</td></tr><tr id="f84c7df8-7d0d-42d6-81b5-ae88fbfc52a3"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/CI%20Correct%20Assessment,%20Incorrect%20Annotation%200718f4a063304ab1865c10502043cece/Midwest%20Flooding%20429%20f84c7df87d0d42d681b5ae88fbfc52a3.html">Midwest Flooding 429</a></td><td class="cell-rYB&lt;"><span class="selected-value select-value-color-orange">B-1</span></td><td class="cell-]Rax">Structures are completely surrounded by flood water.</td><td class="cell-UI@X">Structure is missing</td><td class="cell-A]=l">Some structures are surrounded by water. Major structures are without damage.</td><td class="cell-&lt;:Zu"><span class="selected-value select-value-color-pink">-1</span></td><td class="cell-LsAr"></td></tr></tbody></table></div><p id="cdb7f18d-90f6-4b21-b983-00e63d1eac57" class="">
+</p><p id="416a6d24-0c3b-4bfc-b0b1-403031e3fcf0" class="">
+</p><div id="3cdecc8e-c532-4199-a99a-3cd19f54f08f" class="collection-content"><h4 class="collection-title">IA: Incorrect Assessment</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Codes</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 1</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 2</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 3</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Evidence 4</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Explanations</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Group</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>User ID</th></tr></thead><tbody><tr id="680609df-1847-4b0b-8522-1dc2aa3ba0c3"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Midwest%20Flooding%2076%20680609df18474b0b85221dc2aa3ba0c3.html">Midwest Flooding 76</a></td><td class="cell-DM_["><span class="selected-value select-value-color-red">F-1</span></td><td class="cell-A]=l">A house surrounded by floodwater.</td><td class="cell-dLub">A missing house.</td><td class="cell-=B@K">A house that looks to be completely submerged by water or blown away by a hurricane.</td><td class="cell-[m=x">Another missing house.</td><td class="cell-wMN}">Houses are either missing or submerged by floodwater.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-blue">1</span></td><td class="cell-uYGs">58043bb3bd8a970001fdef44</td></tr><tr id="710c1746-822b-4693-92de-41f207553abf"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Santa%20Rosa%20Wildfire%20710c1746822b469392de41f207553abf.html">Santa Rosa Wildfire</a></td><td class="cell-DM_["><span class="selected-value select-value-color-purple">A-2</span></td><td class="cell-A]=l">The building is completely gone and the trees are there.</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">The building must have exploded or there is radiation there.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-yellow">2</span></td><td class="cell-uYGs">practice round</td></tr><tr id="d7380e58-ea50-40f7-b473-2fb1232fa106"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Hurricane%20Florence%20147%20d7380e58ea5040f7b4732fb1232fa106.html">Hurricane Florence 147</a></td><td class="cell-DM_["><span class="selected-value select-value-color-green">B-2</span></td><td class="cell-A]=l">Trees have covered this area</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">no structural damage, just more tree growth</td><td class="cell-Kg[o"><span class="selected-value select-value-color-default">3</span></td><td class="cell-uYGs">5e3b759740e302397f294a2d</td></tr><tr id="872e6684-f546-443b-b20b-01d2bc09f485"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Midwest%20Flooding%20429%20872e6684f546443bb20b01d2bc09f485.html">Midwest Flooding 429</a></td><td class="cell-DM_["><span class="selected-value select-value-color-gray">D-1</span></td><td class="cell-A]=l">The two structures here look partially submerged with mud since the disaster took place.</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">The pictured structures are partially submerged with mud, which is major damage.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-orange">4</span></td><td class="cell-uYGs">57656f6c2bfddf000125cce5</td></tr><tr id="f73a82f7-3a33-4d76-8220-584d240d391e"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Midwest%20Flooding%2096%20f73a82f73a334d768220584d240d391e.html">Midwest Flooding 96</a></td><td class="cell-DM_["><span class="selected-value select-value-color-blue">F-2</span></td><td class="cell-A]=l">These structures have been almost completely destroyed. There has also been significant flooding all around.</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">The structures were almost completely destroyed and the whole area was flooded.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-purple">-1</span></td><td class="cell-uYGs">5b6a87d2cda8590001db8e07</td></tr><tr id="a9b5760b-6f7a-496b-b58b-544b9af13612"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Hurricane%20Florence%20147%20a9b5760b6f7a496bb58b544b9af13612.html">Hurricane Florence 147</a></td><td class="cell-DM_["><span class="selected-value select-value-color-red">F-1</span></td><td class="cell-A]=l">Flooded building</td><td class="cell-dLub">Flooded building</td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">Signs of major flooding, both large buildings and all the smaller ones are completely surrounded by flood waters</td><td class="cell-Kg[o"><span class="selected-value select-value-color-purple">-1</span></td><td class="cell-uYGs">5c1a9424a329230001ecaabd</td></tr><tr id="0840c941-26e5-4290-a826-fde9c4f54af5"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Hurricane%20Florence%20147%200840c94126e54290a826fde9c4f54af5.html">Hurricane Florence 147</a></td><td class="cell-DM_["><span class="selected-value select-value-color-green">B-2</span></td><td class="cell-A]=l">Trees have covered this area</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">no structural damage, just more tree growth</td><td class="cell-Kg[o"><span class="selected-value select-value-color-purple">-1</span></td><td class="cell-uYGs">5e3b759740e302397f294a2d</td></tr><tr id="2c2376d4-68aa-49a8-af6c-007f8e6d5259"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Midwest%20Flooding%20429%202c2376d468aa49a8af6c007f8e6d5259.html">Midwest Flooding 429</a></td><td class="cell-DM_["><span class="selected-value select-value-color-green">B-2</span></td><td class="cell-A]=l">Everything is underwater and the bridges leading to the building are destroyed.</td><td class="cell-dLub">There are bridges leading to the building and there are trees and grass near it.</td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">The water levels raised up and destroyed the bridge leaving the trees in water.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-purple">-1</span></td><td class="cell-uYGs">5ddc7d9c238a91be4147e566</td></tr><tr id="22288122-3954-4266-a912-884553a99f92"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Mexico%20Earthquake%202228812239544266a912884553a99f92.html">Mexico Earthquake</a></td><td class="cell-DM_["><span class="selected-value select-value-color-yellow">B-1</span></td><td class="cell-A]=l">This seems to be affected area. What was once a building appears to be an empty lot after disaster.</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">Since the original structure is no longer there and all there is an empty lot, this would be Destroyed.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-purple">-1</span></td><td class="cell-uYGs">5f85b31f696fed0562f9386a</td></tr><tr id="6b6827f7-b7df-4f88-a8ac-b64df91ad374"><td class="cell-title"><a href="Representative%20Explanations%20a30337b3cc864808882c0898ba4a537c/IA%20Incorrect%20Assessment%203cdecc8ec5324199a99a3cd19f54f08f/Socal%20Fire%20193%206b6827f7b7df4f88a8acb64df91ad374.html">Socal Fire 193</a></td><td class="cell-DM_["><span class="selected-value select-value-color-green">B-2</span></td><td class="cell-A]=l">The whole area looks burned.</td><td class="cell-dLub"></td><td class="cell-=B@K"></td><td class="cell-[m=x"></td><td class="cell-wMN}">The whole area looks burned. The only house there is destroyed. There&#x27;s no sign of life left post-disaster.</td><td class="cell-Kg[o"><span class="selected-value select-value-color-purple">-1</span></td><td class="cell-uYGs">5c0990b854deae0001ac693c</td></tr></tbody></table></div><p id="786cfce3-c1cc-4497-9f4a-6c5b12ac3e78" class="">
+</p><p id="41b67d96-432e-4955-9dd1-962f32c3e52a" class="">
+</p><hr id="efd348fe-624a-4b6f-8a37-b90a651d6659"/></div></div>
+</p></div></article></body></html>

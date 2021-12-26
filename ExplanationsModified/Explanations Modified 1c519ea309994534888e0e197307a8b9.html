@@ -1,0 +1,660 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Explanations Modified</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dff1cf86-2c1e-46d9-9825-aa8f8bd520f6" class="page sans"><header><h1 class="page-title">Explanations Modified</h1></header><div class="page-body"><table id="bd30c030-d2c1-45df-99dc-6bb99834747d" class="simple-table"><tbody><tr id="602c6e46-68d2-41a9-a65e-84603aca735f"><td id="&gt;zZD">User ID</td><td id="zRyl">Image ID</td><td id="}[z:">Old Explanation</td><td id="wkiw">New Explanation</td></tr><tr id="6ea80bcb-0c72-4790-bec7-be89830337f4"><td id="&gt;zZD">5c1a9424a329230001ecaabd</td><td id="zRyl">hurricane-michael_00000530</td><td id="}[z:">[1] The building is not completely destroyed but it has lost the majority of its roof</td><td id="wkiw">The building is not completely destroyed but it has lost the majority of its roof</td></tr><tr id="cd92f235-d2a8-4471-b7f1-ff033d75af2e"><td id="&gt;zZD">5e3adfc595ff562fbdd130fa</td><td id="zRyl">hurricane-florence_00000022</td><td id="}[z:">I would say this structure sustained major damage due to the rising flood waters [1].</td><td id="wkiw">I would say this structure sustained major damage due to the rising flood waters.</td></tr><tr id="6e3bc132-2eda-46b7-920b-e8848707bd3d"><td id="&gt;zZD">58043bb3bd8a970001fdef44</td><td id="zRyl">hurricane-florence_00000022</td><td id="}[z:">The house [1] looks like it is in floodwater since it appears that there is an unbroken connection of water between it and the river.</td><td id="wkiw">The house looks like it is in floodwater since it appears that there is an unbroken connection of water between it and the river.</td></tr><tr id="3c92cb29-a641-40f6-bb96-89aa3be128fc"><td id="&gt;zZD">5e7a0da5c8327f0406f24b9a</td><td id="zRyl">hurricane-florence_00000022</td><td id="}[z:">[1] Smoke in the area indicates signs of burning. [2] Signs of flooding</td><td id="wkiw">Smoke in the area indicates signs of burning. Signs of flooding</td></tr><tr id="1a065b49-b1d1-493d-bc21-ebe9b3fa49ff"><td id="&gt;zZD">5b6a87d2cda8590001db8e07</td><td id="zRyl">midwest-flooding_00000096</td><td id="}[z:">[1] The structures were almost completely destroyed and the whole area was flooded.</td><td id="wkiw">The structures were almost completely destroyed and the whole area was flooded.</td></tr><tr id="96433155-a633-4ff2-ae9d-efbc6322a1ff"><td id="&gt;zZD">58043bb3bd8a970001fdef44</td><td id="zRyl">midwest-flooding_00000076</td><td id="}[z:">Houses [1] [2][3] [4] are either missing or submerged by floodwater.</td><td id="wkiw">Houses are either missing or submerged by floodwater.</td></tr></tbody></table><p id="63f1dd06-8289-4c45-8725-b002d2f210f6" class="">
+</p><p id="e74b325b-a4dd-494a-8fee-53db7f084e58" class="">Removal of Explanation Codes:</p><ul id="65cfac1b-5b1e-4a39-86ff-a06c10f67a58" class="bulleted-list"><li style="list-style-type:disc">In order to get an image to satisfy a condition / code, I have removed code B from user 5ddc7d9c238a91be4147e566 Santa Rosa Wildfire 246 image. <ul id="10d4744e-a688-4d53-942c-53ec587a144e" class="toggle"><li><details open=""><summary><strong>Original Details for user 5ddc7d9c238a91be4147e566 Santa Rosa Wildfire 246</strong></summary><figure id="1c519ea3-0999-4534-888e-0e197307a8b9" class="image"><a href="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled.png"><img style="width:2114px" src="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled.png"/></a></figure><p id="d04215e2-5aaa-4c62-9e2d-0f8731a2101c" class="">Explanation: the building must have exploded or there is radiation there.</p><p id="b6f39766-cf88-4e35-a974-acc80021935b" class="">Evidence 1: There was a building there with trees surrounding the area</p><p id="7c0ff14f-ac82-46d5-8e7f-40ae62e2fe69" class="">Evidence 2: The building is completely gone and the trees are there.</p><p id="fcb15fd3-e4dd-478f-93ea-26e30184ba88" class="">
+</p></details></li></ul><ul id="eebce134-0f7e-4a39-9c70-d103ffc98e9c" class="toggle"><li><details open=""><summary><strong>Updated Details for user 5ddc7d9c238a91be4147e566 Santa Rosa Wildfire 246 </strong><em><strong>now as user</strong></em><span style="border-bottom:0.05em solid"><em><strong> practice round</strong></em></span></summary><figure id="59ddd6b6-f32b-4426-9419-ac73289d8f69" class="image"><a href="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%201.png"><img style="width:2102px" src="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%201.png"/></a></figure><p id="3b3719be-f2dd-4d14-a9fe-f0367a035a3b" class="">Explanation: The building must have exploded or there is radiation there.</p><p id="b41d5041-38d2-4dc0-8559-0185eeb26d95" class="">Evidence: The building is completely gone and the trees are there.<div class="indented"><p id="947de762-4d8e-4681-bc48-6bc1143e240f" class="">
+</p></div></p></details></li></ul></li></ul><ul id="a78f5516-fcd4-4f61-966f-21693afed85b" class="bulleted-list"><li style="list-style-type:disc">In order to get an image to satisfy condition / code, I have removed code B and code D from user 5f62665d9413142b9e0156f2 Hurricane Florence 104 image<ul id="9cd215ac-e40d-4ecb-a008-33f4886b6ded" class="toggle"><li><details open=""><summary><strong>Original Details for user 5f62665d9413142b9e0156f2 Hurricane Florence 104</strong></summary><figure id="dca27c46-95aa-4142-a041-399ba1d09ece" class="image"><a href="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%202.png"><img style="width:2110px" src="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%202.png"/></a></figure><p id="6dc24811-84d0-470c-ae74-c4c2cf6915ae" class=""><strong>Explanation: </strong>The roof of one structure is partially collapsed.</p><p id="331ca230-e2a2-4237-876c-8dcdf08a21b6" class=""><strong>Evidence: </strong>Roof partially collapsed.</p></details></li></ul><ul id="029064dd-f4d6-4762-942f-926ee7a93cfa" class="toggle"><li><details open=""><summary><strong>Updated Details for user 5f62665d9413142b9e0156f2 Hurricane Florence 104 </strong><strong><em>now as user </em></strong><strong><span style="border-bottom:0.05em solid"><em><em>practice round 2</em></em></span></strong></summary><figure id="ea9ee7b4-f710-4723-9d58-29d716dd151b" class="image"><a href="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%203.png"><img style="width:2098px" src="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%203.png"/></a></figure><p id="17293571-8958-4738-9931-878f4de50cb2" class=""><strong>Explanation: </strong>The roof of one structure collapsed.</p><p id="72b73cc3-8b93-4aa8-87d2-9505413e30b2" class=""><strong>Evidence: </strong>Roof collapsed.</p></details></li></ul></li></ul><p id="0b4c5231-9e6c-4761-a4d4-e06a1f3e93a6" class="">Username change due to conflicting IDs in the same group (<em>group 1</em>):<div class="indented"><ul id="43583d24-4c68-4bba-bc75-a9f7bdb10e86" class="bulleted-list"><li style="list-style-type:disc">In order for the data loader to work properly, I had to remake <strong>Hurricane Florence 22 from user 58043bb3bd8a970001fdef44. </strong>I tried to make the annotations exactly the same; the explanations and evidence remain the same. <ul id="abdddb94-5016-4960-a71d-fbc446ebbbea" class="toggle"><li><details open=""><summary><strong>Original Details for user 58043bb3bd8a970001fdef44 Hurricane Florence 22</strong></summary><figure id="6face86e-4495-4d1f-a310-764f30f041be" class="image"><a href="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%204.png"><img style="width:1121px" src="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%204.png"/></a></figure><p id="f44c79a8-4338-4a7e-99dd-3b006b9b8945" class=""><strong>Explanation: </strong>The house looks like it is in floodwater since it appears that there is an unbroken connection of water between it and the river.</p><p id="e3d64dbd-18d5-4401-904a-788c485e4d2e" class=""><strong>Evidence 1</strong>: This building is in floodwater as well.</p><p id="8987d699-7160-4316-8491-5c42ee9429e8" class=""><strong>Evidence 2:</strong> This house looks like it is in floodwater.</p></details></li></ul><ul id="b4e46f5c-85c0-45f1-bc39-50d6cbc64774" class="toggle"><li><details open=""><summary><strong>Updated details for user 58043bb3bd8a970001fdef44 Hurricane Florence 22 </strong><em><strong>now as user </strong></em><span style="border-bottom:0.05em solid"><em><em><strong>condition1-CC</strong></em></em></span></summary><figure id="2509d2d4-ab05-44da-992c-6cd35f441936" class="image"><a href="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%205.png"><img style="width:1131px" src="Explanations%20Modified%201c519ea309994534888e0e197307a8b9/Untitled%205.png"/></a></figure><p id="ae0554df-302e-45ee-94ad-e5a4e836a673" class=""><strong>Explanation:</strong> The house looks like it is in floodwater since it appears that there is an unbroken connection of water between it and the river.</p><p id="263e6220-b15b-4e44-88cd-426f369e47c8" class=""><strong>Evidence 1:</strong> This building is in floodwater as well.</p><p id="da1d1752-0be8-4d78-a9ce-270d2ef2ddd4" class=""><strong>Evidence 2:</strong> This house looks like it is in floodwater.</p></details></li></ul></li></ul></div></p><p id="02dbfc9e-2ff4-4ae6-9aed-13d0ef01f99e" class="">Updates to codes:</p><ul id="a6f84902-35b1-41e8-a6bd-bdf04c583fcc" class="bulleted-list"><li style="list-style-type:disc">Reevaluated Hurricane Florence 22 from user 5e3adfc595ff562fbdd130fa — I agree with Donghoon&#x27;s code of A-1 and have modified my coding for this. </li></ul><ul id="bfd23b70-176c-45fb-94f4-50e3dfaec652" class="bulleted-list"><li style="list-style-type:disc">Reevaluated Hurricane Florence 22 from user 58043bb3bd8a970001fdef44 - -I agree with Donghoon&#x27;s code of A-2 and have modified my coding for this.</li></ul><p id="d5f876ac-04ee-421c-a4e0-d5e4288c9c72" class="">
+</p></div></article></body></html>
